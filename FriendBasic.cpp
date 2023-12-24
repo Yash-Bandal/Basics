@@ -95,3 +95,40 @@ int main()
     call_friend();
     return 0;
 }
+
+//use 2 variables of single private
+#include<iostream>
+using namespace std;
+class alpha
+{
+    private:
+    int frndVar1;
+    int frndVar2;
+    
+    public:
+    alpha(int use1=0,int use2=0)  //constructor 0 important 
+    {
+        frndVar1=use1;
+        frndVar2=use2;
+    }
+    friend void call_friend();
+};
+
+void call_friend()
+{
+    alpha anyVar(10,20);  //you need only one object for one class..no multiple in frnd func
+    int x=anyVar.frndVar1+anyVar.frndVar2;
+    cout<<x;
+
+   // int n1,n2;   //user defined
+   // cout<<"ENter Num1\n";
+   // cin>>n1;
+   // cout<<"ENter Num2\n";
+   // cin>>n2;
+   // alpha anyVar(n1,n2);
+}
+int main()
+{
+    call_friend();
+    return 0;
+} 
