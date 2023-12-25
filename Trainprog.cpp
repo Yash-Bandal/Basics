@@ -12,13 +12,15 @@ public:
     Salesman(int train = 0, int car = 0) : trainDistance(train), carDistance(car) {}
 
     // Overloaded + operator to calculate total distance and total allowance
-    Salesman operator+(const Salesman& c) const {
-        Salesman result(trainDistance + c.trainDistance, carDistance + c.carDistance);
+    Salesman operator+(Salesman c)  {
+        Salesman result;
+        result.trainDistance = trainDistance +c.trainDistance;
+        result.carDistance =carDistance+ c.carDistance;
         return result;
     }
 
     // Calculate and display total distance and total allowance
-    void calculateTotalAllowance() const {
+    void calculateTotalAllowance()  {
         int totalDistance = trainDistance + carDistance;
         int totalAllowance = (trainDistance * 5) + (carDistance * 20);
 
@@ -27,7 +29,7 @@ public:
     }
 
     // Display details of the trip
-    void display() const {
+    void display() {
         cout << "Train Distance: " << trainDistance << " Km" << endl;
         cout << "Car Distance: " << carDistance << " Km" << endl;
         calculateTotalAllowance();
